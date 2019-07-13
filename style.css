@@ -12,6 +12,11 @@ html, body {
     position: relative;
 }
 
+body {
+    background-color:#EFEFEF;
+    transition: background-color 1s ease-in;
+}
+
 .conditions {
     position:fixed;
     bottom:calc(50% + 65px);
