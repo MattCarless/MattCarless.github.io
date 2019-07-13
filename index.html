@@ -6,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
 
+    <div class="conditions">
+        
+        <div class="weathericon" id="js-weathericon"></div>
+        <p><span id="js-weathercondition"></span> <span class="temperature" id="js-temperature"></span></p>
+    </div>
 
-<div id="js-weathericon"></div>    
+    <form class="locationform">
+        <input class="locationinput" id="js-locationinput" placeholder="Please enter a UK town or city" type="text" />
+        <button class="locationsubmit" id="js-locationsubmit">Search</button>
+        <div class="error" id="js-error"></div>
+    </form>
 
-<div id="js-weathercondition"></div> <br>
-<div id="js-temperature"></div> <br>
-
-<form>
-<input id="js-locationinput" type="text"/> 
-<button id="js-locationsubmit">Search</button> 
-</form>
 
     <script src="script.js"></script>
+
+
 </body>
 
 </html>
