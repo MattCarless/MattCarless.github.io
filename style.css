@@ -9,12 +9,14 @@ html, body {
     transition: background-color 1s ease-in;
     font-family: "Helvetica", "Arial", sans-serif;
     font-weight:lighter;
+    position: relative;
 }
 
 .conditions {
     position:fixed;
     bottom:calc(50% + 65px);
     text-align:center;
+    
 
 }
 
@@ -27,7 +29,10 @@ html, body {
 
 
 .locationform {
+    display: block;
     text-align:center;
+    width: 100%;
+    padding: 20px;
 }
 
 .locationinput {
@@ -39,6 +44,7 @@ html, body {
     border-radius:5px;
     font-size:20px;
     text-align:center;
+    box-sizing: border-box;
    
 }
 
@@ -47,6 +53,7 @@ padding: 5px 18px;
 margin: 20px auto 0px auto;
 font-size:14px;
 cursor: pointer;
+background-color: #fff;
 
 }
 
@@ -68,4 +75,14 @@ cursor: pointer;
 ::placeholder {
     text-align: center;
     color: #ddd;
+  }
+
+  @media all and (max-width: 500px) {
+      .conditions {
+          left: 20px;
+          right: 20px;
+      }
+    .locationinput {
+        width: 100%;
+    }
   }

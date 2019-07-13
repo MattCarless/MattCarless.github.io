@@ -19,7 +19,7 @@ const getUserLocation = (event) => {
 
 
 const getWeatherData = (userLocation) => {
-    fetch("http://api.openweathermap.org/data/2.5/weather?q=" + userLocation + ",UK&units=metric&APPID=7c5e998268ad415c134ff54444a16be9")
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + userLocation + ",UK&units=metric&APPID=7c5e998268ad415c134ff54444a16be9")
         .then(response => {
             if (response.status === 200) {
                 return response.json();
@@ -39,7 +39,7 @@ const onApiSuccess = (data) => {
     weatherCondition.innerHTML = data.weather[0].main + ",";
     temperature.innerHTML = Math.floor(data.main.temp) + " degrees celcius " ;
 
-    const imageSrc = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+    const imageSrc = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
     weatherIcon.innerHTML = "<img src='" + imageSrc + "'>";
     body.style.backgroundColor = getBackgroundColour(data.weather[0].id);
     errorDiv.innerHTML = "";
