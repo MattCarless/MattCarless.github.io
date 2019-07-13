@@ -1,3 +1,5 @@
+//
+
 const locationField = document.getElementById("js-locationinput");
 const locationInput = document.getElementById("js-locationsubmit");
 const weatherCondition = document.getElementById("js-weathercondition");
@@ -7,9 +9,10 @@ const errorDiv = document.getElementById("js-error");
 const body = document.body;
 let errorMessage = "";
 
-// document.body.style.backgroundColor = "red";
-
-
+/**
+ * Fired when user clicks 'search'
+ * Gets value from input field
+ */
 const getUserLocation = (event) => {
     event.preventDefault();
     const inputValue = locationField.value;
@@ -17,7 +20,11 @@ const getUserLocation = (event) => {
 
 }
 
-
+/**
+ * Fetch API
+ * If successful - data transferred to function onApiSuccess()
+ * if unsuccessful, data fransferred to function onApiError()
+ */
 const getWeatherData = (userLocation) => {
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + userLocation + ",UK&units=metric&APPID=7c5e998268ad415c134ff54444a16be9")
         .then(response => {
@@ -35,6 +42,10 @@ const getWeatherData = (userLocation) => {
         })
 };
 
+/**
+ * Data passed from successful fetch call
+ * Response populates html page
+ */
 const onApiSuccess = (data) => {
     weatherCondition.innerHTML = data.weather[0].main + ",";
     temperature.innerHTML = Math.floor(data.main.temp) + " degrees celcius " ;
@@ -43,11 +54,14 @@ const onApiSuccess = (data) => {
     weatherIcon.innerHTML = "<img src='" + imageSrc + "'>";
     body.style.backgroundColor = getBackgroundColour(data.weather[0].id);
     errorDiv.innerHTML = "";
-    console.log(data);
 };
 
+/**
+ * Data passed from unsuccessful fetch call
+ * Clear previous weather conditions from HTML
+ * Add error messsage to page
+ */
 const onApiError = (error) => {
-    console.log(error);
     weatherCondition.innerHTML = "";
     temperature.innerHTML = "";
     weatherIcon.innerHTML = "";
